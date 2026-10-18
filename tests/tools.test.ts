@@ -14,12 +14,20 @@ describe('Tool Validation & Dispatcher', () => {
   });
 
   describe('getTranscriptSchema', () => {
-    it('accepts valid YouTube URL and defaults textOnly to true', () => {
+    it('accepts valid YouTube URL and defaults text to true', () => {
       const parsed = getTranscriptSchema.parse({
-        url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        url: 'https://www.youtube.com/watch?v=bvy_lPzYgcs',
       });
-      expect(parsed.url).toBe('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-      expect(parsed.textOnly).toBe(true);
+      expect(parsed.url).toBe('https://www.youtube.com/watch?v=bvy_lPzYgcs');
+      expect(parsed.text).toBe(true);
+    });
+
+    it('accepts textOnly as backwards-compatible alias', () => {
+      const parsed = getTranscriptSchema.parse({
+        url: 'https://www.youtube.com/watch?v=bvy_lPzYgcs',
+        textOnly: false,
+      });
+      expect(parsed.textOnly).toBe(false);
     });
 
     it('rejects invalid URLs', () => {

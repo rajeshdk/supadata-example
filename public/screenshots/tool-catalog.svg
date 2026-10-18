@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" rx="16" fill="url(#cat-grad)"/>
+  <rect width="1000" height="620" rx="16" fill="none" stroke="#334155" stroke-width="2"/>
+
+  <!-- Modal Header -->
+  <rect width="1000" height="60" rx="16" fill="#0f172a"/>
+  <rect y="40" width="1000" height="20" fill="#0f172a"/>
+  <text x="32" y="38" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700">⚙️ Supadata SDK Tool Registry &amp; Schema Explorer</text>
+  <text x="950" y="38" fill="#94a3b8" font-family="sans-serif" font-size="16" text-anchor="middle">✕</text>
+  <line x1="0" y1="60" x2="1000" y2="60" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Sidebar: Tool List -->
+  <rect x="0" y="60" width="260" height="560" fill="#090d16" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Active Tool Item -->
+  <rect x="12" y="76" width="236" height="42" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="24" y="102" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold">🎬 get_transcript</text>
+
+  <!-- Inactive Tool Items -->
+  <rect x="12" y="126" width="236" height="42" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="152" fill="#94a3b8" font-family="monospace" font-size="13">🌐 scrape_webpage</text>
+
+  <rect x="12" y="176" width="236" height="42" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="202" fill="#94a3b8" font-family="monospace" font-size="13">🔍 search_youtube</text>
+
+  <rect x="12" y="226" width="236" height="42" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="252" fill="#94a3b8" font-family="monospace" font-size="13">📊 get_metadata</text>
+
+  <!-- Main Content: Tool Code & Schema -->
+  <g transform="translate(290, 80)">
+    <text x="0" y="20" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700">Video Transcript Extractor</text>
+    <rect x="235" y="4" width="105" height="22" rx="6" fill="#1e293b"/>
+    <text x="287" y="19" fill="#818cf8" font-family="monospace" font-size="11" text-anchor="middle">get_transcript</text>
+
+    <text x="0" y="48" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Extracts continuous or timestamped transcripts from YouTube, TikTok, Instagram, and Twitter URLs.</text>
+
+    <!-- Code Block -->
+    <text x="0" y="86" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">TypeScript Usage with @supadata/js:</text>
+
+    <rect x="0" y="98" width="670" height="390" rx="12" fill="#020617" stroke="#1e293b" stroke-width="1.5"/>
+
+    <text x="20" y="130" fill="#f43f5e" font-family="monospace" font-size="12">import <tspan fill="#ffffff">{ Supadata }</tspan> from <tspan fill="#4ade80">'@supadata/js'</tspan>;</text>
+
+    <text x="20" y="170" fill="#64748b" font-family="monospace" font-size="12">// Initialize client with server-side API key</text>
+    <text x="20" y="194" fill="#38bdf8" font-family="monospace" font-size="12">const <tspan fill="#ffffff">supadata</tspan> = new <tspan fill="#facc15">Supadata</tspan>({</text>
+    <text x="36" y="218" fill="#ffffff" font-family="monospace" font-size="12">apiKey: process.env.SUPADATA_API_KEY!,</text>
+    <text x="20" y="242" fill="#38bdf8" font-family="monospace" font-size="12">});</text>
+
+    <text x="20" y="280" fill="#64748b" font-family="monospace" font-size="12">// Fetch clean plain-text transcript (ideal for LLM reasoning)</text>
+    <text x="20" y="304" fill="#38bdf8" font-family="monospace" font-size="12">const <tspan fill="#ffffff">transcript</tspan> = await <tspan fill="#ffffff">supadata</tspan>.<tspan fill="#facc15">transcript</tspan>({</text>
+    <text x="36" y="328" fill="#ffffff" font-family="monospace" font-size="12">url: <tspan fill="#4ade80">'https://www.youtube.com/watch?v=bvy_lPzYgcs'</tspan>,</text>
+    <text x="36" y="352" fill="#ffffff" font-family="monospace" font-size="12">lang: <tspan fill="#4ade80">'en'</tspan>,</text>
+    <text x="36" y="376" fill="#ffffff" font-family="monospace" font-size="12">text: <tspan fill="#f43f5e">true</tspan>,</text>
+    <text x="36" y="400" fill="#ffffff" font-family="monospace" font-size="12">mode: <tspan fill="#4ade80">'auto'</tspan>,</text>
+    <text x="20" y="424" fill="#38bdf8" font-family="monospace" font-size="12">});</text>
+
+    <text x="20" y="460" fill="#38bdf8" font-family="monospace" font-size="12">console.log(<tspan fill="#ffffff">transcript.content</tspan>);</text>
+  </g>
+</svg>

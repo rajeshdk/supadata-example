@@ -17,7 +17,7 @@ export async function runMockAgentResponse(
   // Detect YouTube URL
   if (userQuery.includes('youtube.com') || userQuery.includes('youtu.be')) {
     const videoUrlMatch = userQuery.match(/https?:\/\/[^\s]+/);
-    const videoUrl = videoUrlMatch ? videoUrlMatch[0] : 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    const videoUrl = videoUrlMatch ? videoUrlMatch[0] : 'https://www.youtube.com/watch?v=bvy_lPzYgcs';
 
     toolCalls.push({
       id: `call_${Math.random().toString(36).substring(2, 9)}`,
@@ -26,34 +26,44 @@ export async function runMockAgentResponse(
       arguments: {
         url: videoUrl,
         lang: 'en',
-        textOnly: true,
+        text: true,
       },
       status: 'success',
-      executionTimeMs: 380,
+      executionTimeMs: 342,
       timestamp: new Date().toISOString(),
       result: {
         success: true,
         data: {
           url: videoUrl,
           language: 'en',
-          availableLanguages: ['en', 'es', 'de'],
+          availableLanguages: ['en'],
           fullText:
-            "Welcome everyone. Today we are exploring how AI agents interact with external APIs using tools. Using Supadata, an AI agent can reliably extract YouTube transcripts in seconds, parse video chapters, and analyze multi-speaker discussions without scraping hurdles. Next, let's look at how function calling hooks into this pipeline to generate structured summaries...",
-          chunkCount: 12,
+            "What is an AI agent? In computer science, an agent is an autonomous entity that observes its environment through sensors and takes actions using actuators to achieve goals. Unlike a basic LLM prompt that just produces text, an agent operates in an iterative loop: perceive, reason, call tools, and adapt. There are 7 core agent archetypes: 1. Simple Reflex Agents which respond directly to inputs based on predefined rules; 2. Model-Based Reflex Agents that maintain internal state to handle partial observability; 3. Goal-Based Agents that plan actions toward an explicit outcome; 4. Utility-Based Agents that weigh trade-offs and score choices; 5. Learning Agents that improve from past experience; 6. Multi-Agent Systems where specialized agents collaborate; and 7. Autonomous Foundation Model Agents that combine LLMs with tool execution like web scrapers and code interpreters...",
+          chunkCount: 24,
         },
       },
     });
 
-    content = `### Video Summary & Key Takeaways
+    content = `### Video Summary: "What is an AI Agent? 7 Types Explained"
 
-I retrieved and analyzed the transcript for [${videoUrl}](${videoUrl}) using the **Supadata SDK** (\`supadata.transcript\`).
+I retrieved and processed the transcript for [${videoUrl}](${videoUrl}) using the **Supadata SDK** (\`supadata.transcript\`).
 
-#### Key Insights:
-1. **Agent Tool Integration**: Modern AI agents rely on specialized data providers like Supadata to bridge the gap between unstructured social media/video content and LLMs.
-2. **Clean Transcript Ingestion**: Instead of brittle browser scraping, the SDK extracts clean transcripts with language selection and optional timestamped chunks.
-3. **Structured Tool Pipeline**: Incorporating function calling allows the model to autonomously decide when to fetch video context based on user prompts.
+#### Core Definition:
+An AI Agent is an autonomous entity that perceives its environment, reasons about goals, and executes actions using tools (actuators) rather than just predicting the next token.
 
-*Tip: Add your live \`SUPADATA_API_KEY\` and \`OPENAI_API_KEY\` in \`.env.local\` to process any real-time public video!*`;
+#### Key Takeaways:
+1. **The Agent Loop**: Modern agents rely on an iterative execution loop: **Perceive → Reason → Call Tools → Evaluate Output**.
+2. **The 7 Agent Architectures**:
+   - **Simple Reflex**: Rule-based immediate responses.
+   - **Model-Based**: Keeps track of state when information is incomplete.
+   - **Goal-Based**: Backward-chains from a desired outcome.
+   - **Utility-Based**: Evaluates multiple paths to optimize reward.
+   - **Learning Agent**: Continuously refines its policy from feedback.
+   - **Multi-Agent Systems**: Modular agents collaborating (e.g., researcher + coder + reviewer).
+   - **Foundation Model Agents**: LLMs equipped with external tools (like Supadata for web and video scraping).
+3. **Tool Execution is Essential**: Without external APIs and data providers, agents cannot inspect live media, search video platforms, or scrape web documentation.
+
+*Tip: Connect your live \`SUPADATA_API_KEY\` and \`OPENAI_API_KEY\` in \`.env.local\` to process any live public video in real-time!*`;
   }
   // Detect Web URL
   else if (userQuery.match(/https?:\/\/[^\s]+/)) {
@@ -119,25 +129,25 @@ Would you like me to extract specific links or drill deeper into any section?`;
           results: [
             {
               type: 'video',
-              id: 'dQw4w9WgXcQ',
-              title: `Building Autonomous AI Agents with Tools (${searchQuery})`,
-              description: 'A deep dive into tool-calling architectures and web extraction pipelines.',
-              thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80',
-              duration: 840,
-              viewCount: 45200,
-              uploadDate: '2024-11-01',
-              channel: { id: 'ch_1', name: 'AI Builders' },
+              id: 'bvy_lPzYgcs',
+              title: 'What is an AI Agent? 7 types explained',
+              description: 'A comprehensive visual breakdown of 7 types of AI agents, tool use, and multi-agent systems.',
+              thumbnail: 'https://i.ytimg.com/vi/bvy_lPzYgcs/hqdefault.jpg',
+              duration: 345,
+              viewCount: 428000,
+              uploadDate: '2024-03-12',
+              channel: { id: 'UCsBjURrPoezykLs9EqgamOA', name: 'Fireship' },
             },
             {
               type: 'video',
-              id: 'xvFZjo5PgG0',
-              title: `Next.js 15 & AI SDK Full Course`,
-              description: 'Learn how to build production-ready agent interfaces with streaming UI.',
-              thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80',
-              duration: 1250,
-              viewCount: 89300,
-              uploadDate: '2024-12-15',
-              channel: { id: 'ch_2', name: 'Code Mastery' },
+              id: 'zjkBMFhNj_g',
+              title: '[1hr Talk] Intro to Large Language Models',
+              description: 'A 1-hour busy person introduction to Large Language Models, fine-tuning, tools, and autonomous agents.',
+              thumbnail: 'https://i.ytimg.com/vi/zjkBMFhNj_g/hqdefault.jpg',
+              duration: 3600,
+              viewCount: 3820000,
+              uploadDate: '2023-11-22',
+              channel: { id: 'UCXUPKJOtpnbPau4yK8T6_2A', name: 'Andrej Karpathy' },
             },
           ],
         },
@@ -148,12 +158,12 @@ Would you like me to extract specific links or drill deeper into any section?`;
 
 Found relevant videos using **Supadata YouTube Search** (\`supadata.youtube.search\`):
 
-1. **Building Autonomous AI Agents with Tools**
-   - **Channel**: AI Builders | **Views**: 45.2k | **Duration**: 14 min
-   - [Watch Video](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-2. **Next.js 15 & AI SDK Full Course**
-   - **Channel**: Code Mastery | **Views**: 89.3k | **Duration**: 20 min
-   - [Watch Video](https://www.youtube.com/watch?v=xvFZjo5PgG0)
+1. **What is an AI Agent? 7 types explained**
+   - **Channel**: Fireship | **Views**: 428K | **Duration**: 5:45
+   - [Watch Video](https://www.youtube.com/watch?v=bvy_lPzYgcs)
+2. **[1hr Talk] Intro to Large Language Models**
+   - **Channel**: Andrej Karpathy | **Views**: 3.82M | **Duration**: 1:00:00
+   - [Watch Video](https://www.youtube.com/watch?v=zjkBMFhNj_g)
 
 Would you like me to fetch the full transcript or extract key takeaways from one of these videos?`;
   }

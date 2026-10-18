@@ -22,7 +22,7 @@ export const AGENT_TOOLS: ChatCompletionTool[] = [
             type: 'string',
             description: 'Optional 2-letter language code (e.g., "en", "es", "fr"). Defaults to video native language.',
           },
-          textOnly: {
+          text: {
             type: 'boolean',
             description: 'Whether to return a clean continuous plain text string (recommended: true) or chunks.',
             default: true,

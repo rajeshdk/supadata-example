@@ -12,7 +12,7 @@ export const SUGGESTIONS = [
     icon: Video,
     category: 'Video Transcript',
     label: 'Summarize YouTube Video',
-    prompt: 'Summarize the key takeaways and main talking points of this video: https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    prompt: 'Summarize the key takeaways and main talking points of this video: https://www.youtube.com/watch?v=bvy_lPzYgcs',
     color: 'from-rose-500/20 to-orange-500/20 text-rose-400 border-rose-500/30',
   },
   {
@@ -33,7 +33,7 @@ export const SUGGESTIONS = [
     icon: Share2,
     category: 'Social Intelligence',
     label: 'Inspect Media Metadata',
-    prompt: 'Extract metadata, view count, author details, and engagement stats for https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    prompt: 'Extract metadata, view count, author details, and engagement stats for https://www.youtube.com/watch?v=bvy_lPzYgcs',
     color: 'from-amber-500/20 to-yellow-500/20 text-amber-400 border-amber-500/30',
   },
 ];

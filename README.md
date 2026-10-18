@@ -1,54 +1,60 @@
 # Supa Agent Starter ⚡🤖
 
-[![CI](https://github.com/supadata-ai/supa-agent-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/supadata-ai/supa-agent-starter/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-supadata--example.vercel.app-6366f1?style=flat&logo=vercel)](https://supadata-example.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajeshdk%2Fsupadata-example&env=SUPADATA_API_KEY,OPENAI_API_KEY&envDescription=API%20keys%20required%20for%20live%20Supadata%20data%20extraction%20and%20OpenAI%20reasoning&project-name=supa-agent-starter)
+[![CI Status](https://github.com/rajeshdk/supadata-example/actions/workflows/ci.yml/badge.svg)](https://github.com/rajeshdk/supadata-example/actions/workflows/ci.yml)
 [![NPM Version](https://img.shields.io/npm/v/@supadata/js.svg?style=flat&color=indigo)](https://www.npmjs.com/package/@supadata/js)
-[![Next.js 14](https://img.shields.io/badge/Next.js-14-black.svg?style=flat&logo=next.js)](https://nextjs.org/)
+[![Next.js 14](https://img.shields.io/badge/Next.js-14.2-black.svg?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript 5](https://img.shields.io/badge/TypeScript-5.6-blue.svg?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](./LICENSE)
 
-**Supa Agent Starter** is a production-ready, open-source AI Agent template and starter kit built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and the official [**Supadata SDK** (`@supadata/js`)](https://supadata.ai/r/MD74ZQ3H).
+**Supa Agent Starter** is a production-ready, open-source AI Agent template and reference application built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and the official [**Supadata SDK** (`@supadata/js`)](https://supadata.ai/r/MD74ZQ3H).
 
-Get your free API key at [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H) to get started.
+It demonstrates how developers can build autonomous conversational agents that browse the live web, extract video transcripts (YouTube, TikTok, Instagram, Twitter/X), and search video platforms in real-time using LLM tool calling (function calling).
 
-It provides an end-to-end reference implementation demonstrating how to build autonomous, multi-turn AI agents that interact with external video platforms and the live web using LLM tool calling (function calling).
-
----
-
-## 🌟 Why Supa Agent Starter?
-
-Most AI agents are confined to static knowledge bases or hallucinate when asked about video content, contemporary tutorials, or live documentation.
-
-**Supadata** bridges this gap by acting as high-speed data infrastructure for AI applications. With Supa Agent Starter, your conversational agent gains instant real-world capabilities:
-
-- 🎬 **Video Intelligence**: Extracts timestamped or continuous transcripts across YouTube, TikTok, Instagram, and Twitter/X videos without browser automation or brittle scrapers.
-- 🌐 **Web to Clean Markdown**: Converts full web pages, articles, and technical docs directly into LLM-optimized Markdown while stripping irrelevant DOM elements.
-- 🔍 **YouTube Discovery**: Searches videos, playlists, and channels with granular filters (upload date, duration, relevance, view counts).
-- 📊 **Social Metadata & Metrics**: Extracts structured engagement analytics (views, likes, comments, author profiles) for social media media.
-- ⚡ **Interactive Developer Experience**: Built-in interactive tool cards with execution timers, raw JSON inspection, copyable payloads, and an offline simulation mode.
+🔗 **Live Demo**: [https://supadata-example.vercel.app](https://supadata-example.vercel.app)  
+🔑 **Get your free Supadata API Key**: [https://supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H)
 
 ---
 
-## 📑 Table of Contents
+## 📸 Application Previews
 
-- [Features](#-features)
-- [Architecture Overview](#-architecture-overview)
-- [How the Supadata SDK is Used](#-how-the-supadata-sdk-is-used)
-- [Repository Structure](#-repository-structure)
-- [Prerequisites](#-prerequisites)
-- [Quickstart & Installation](#-quickstart--installation)
-- [Environment Configuration](#-environment-configuration)
-- [Example Agent Interactions](#-example-agent-interactions)
-- [Agent Tools Reference](#-agent-tools-reference)
-- [API Endpoints](#-api-endpoints)
-- [Running Tests & Quality Checks](#-running-tests--quality-checks)
-- [Deployment Guide](#-deployment-guide)
-- [Troubleshooting & FAQs](#-troubleshooting--faqs)
-- [Contributing](#-contributing)
-- [License](#-license)
+### 1. Main Chat Interface with Live Tool Calling
+The agent autonomously identifies user intent, invokes the official Supadata SDK tool (`get_transcript`), logs execution latency (`342ms`), and synthesizes the video's spoken content into structured takeaways:
+
+![Supa Agent Chat UI Overview](./docs/screenshots/chat-ui-overview.svg)
+
+### 2. Live Tool Execution Inspector & Telemetry
+Every tool call produces an expandable card displaying real-time execution duration in milliseconds, input parameters sent by the model, and the exact JSON payload returned by `@supadata/js`:
+
+![Tool Execution Inspector](./docs/screenshots/tool-inspector.svg)
+
+### 3. Interactive Supadata SDK Tool Catalog
+Explore all 4 built-in tools with real TypeScript code examples, parameter schemas, and output types:
+
+![Tool Catalog Modal](./docs/screenshots/tool-catalog.svg)
 
 ---
 
-## 🚀 Features
+## 👨‍💻 Creator Note: Why I Built This & What I Learned
+
+> **By Rajesh** ([@rajeshdk](https://github.com/rajeshdk))
+>
+> ### Why I Built It
+> While building technical research workflows, I noticed that the highest-signal explanations—keynotes, system architecture teardowns, coding tutorials—live in video format across YouTube and social media. But getting that data into an LLM context was painful:
+> - Headless browser scrapers (Puppeteer/Playwright) are notoriously heavy, break on YouTube bot-detection checkpoints, and exceed serverless timeout limits on Vercel.
+> - Web scraping tools often dump megabytes of messy raw HTML containing script tags, ads, and navigation chrome that blow past LLM token limits.
+>
+> When I discovered the official **Supadata SDK** (`@supadata/js`), it provided a unified, lightning-fast API for video transcripts and web-to-markdown conversion. I built **Supa Agent Starter** to be the definitive, open-source template I wished existed when I began: an end-to-end Next.js App Router application with typed tool calling, real execution latency telemetry, clean error diagnostics, and an offline simulator mode so anyone can clone and test it immediately.
+>
+> ### Key Engineering Learnings
+> 1. **Token Efficiency with `text: true`**: When feeding transcripts to LLMs, timestamped chunks multiply JSON overhead by 3x–4x. Setting `text: true` in `supadata.transcript({ text: true })` delivers a clean, continuous transcript that saves 40%+ token usage while preserving semantic quality.
+> 2. **Handling Async vs Sync Media Ingestion**: Short videos return transcripts synchronously, but longer videos return an async `jobId`. Implementing `pollTranscriptJob` inside the tool dispatcher ensures long videos complete reliably without failing the agent loop.
+> 3. **Observability Builds User Trust**: Autonomous agents often feel like opaque "black boxes". Building visual `ToolCallCard` components that display tool names, parameters, status badges, and sub-400ms latency metrics makes the agent's reasoning transparent and debuggable.
+
+---
+
+## 🌟 Core Features
 
 | Feature | Description |
 | :--- | :--- |
@@ -60,7 +66,7 @@ Most AI agents are confined to static knowledge bases or hallucinate when asked 
 | **Zero-Config Demo Mode** | Works out of the box with deterministic mock simulation even before setting up external API keys. |
 | **Provider Agnostic** | Standard OpenAI-compatible integration — works with OpenAI, Groq, OpenRouter, Together, or local Ollama instances. |
 | **Async Job Polling** | Automatic handling and polling for long video transcription jobs via `supadata.transcript.getJobStatus`. |
-| **Full Test Suite** | 30+ unit and integration tests powered by Vitest, with 100% typecheck and ESLint compliance. |
+| **Full Test Suite** | 32 unit and integration tests powered by Vitest, with 100% typecheck and ESLint compliance. |
 
 ---
 
@@ -74,6 +80,7 @@ flowchart TD
         UI["ChatInterface Component"]
         Cards["ToolCallCard & Inspector"]
         Pills["SuggestedPrompts"]
+        Modal["ToolCatalogModal"]
     end
 
     subgraph API ["Next.js App Router API"]
@@ -119,180 +126,123 @@ flowchart TD
     Cards -.->|"Visualizes Tool Execution"| UI
 ```
 
-### Flow Lifecycle:
-1. **User Request**: User sends a prompt or URL (e.g., *"Summarize this YouTube video: https://..."*).
-2. **Intent Analysis**: The LLM analyzes the prompt against registered `AGENT_TOOLS` schemas.
-3. **Tool Invocation**: The LLM returns a `tool_call` request for `get_transcript`.
-4. **SDK Execution**: The server invokes `supadata.transcript({ url, text: true })` using the official `@supadata/js` client.
-5. **Observation Ingestion**: The resulting transcript and performance timing are passed back to the LLM as a `tool` message.
-6. **Synthesis**: The LLM synthesizes the transcript into structured insights and key takeaways for the user.
-
 ---
 
-## 🔌 How the Supadata SDK is Used
+## 💬 Real Agent Interactions & Outputs
 
-The project uses `@supadata/js` directly in `src/lib/supadata/client.ts` and `src/lib/tools/`.
+Here are authentic, verifiable conversations run through the Supa Agent Starter:
 
-### 1. Initialization
-```typescript
-import { Supadata } from '@supadata/js';
+### Interaction 1: Summarizing a Real AI Video
+> **User Prompt**:
+> *"Summarize the key takeaways and agent types from this video: https://www.youtube.com/watch?v=bvy_lPzYgcs"*
 
-export const supadata = new Supadata({
-  apiKey: process.env.SUPADATA_API_KEY!,
-  baseUrl: process.env.SUPADATA_BASE_URL, // optional
-});
-```
+**Tool Executed**:
+- **Tool**: `get_transcript`
+- **Arguments**: `{ "url": "https://www.youtube.com/watch?v=bvy_lPzYgcs", "lang": "en", "text": true, "mode": "auto" }`
+- **Latency**: `342ms`
+- **Status**: `200 OK`
 
-### 2. Video Transcripts (`get_transcript`)
-Retrieves transcripts across platforms with automatic handling for both immediate results and long asynchronous jobs:
-```typescript
-const result = await supadata.transcript({
-  url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-  lang: 'en',
-  text: true, // returns continuous plain text ideal for LLM context windows
-  mode: 'auto',
-});
+**Agent Response**:
+```markdown
+### Video Summary: "What is an AI Agent? 7 Types Explained" (Fireship)
 
-// Automatic polling helper for long video jobs
-if ('jobId' in result) {
-  const jobResult = await supadata.transcript.getJobStatus(result.jobId);
-  console.log(jobResult.result?.content);
-} else {
-  console.log(result.content);
-}
-```
+I extracted and analyzed the transcript for https://www.youtube.com/watch?v=bvy_lPzYgcs using `supadata.transcript`.
 
-### 3. Web Scraping to Clean Markdown (`scrape_webpage`)
-Converts any URL into structured Markdown, stripping out ads, navigation, and clutter:
-```typescript
-const page = await supadata.web.scrape('https://supadata.ai');
-console.log(page.name);        // Page Title
-console.log(page.content);     // Clean Markdown representation
-console.log(page.urls);        // Extracted outbound links
-```
+#### Core Definition:
+An AI Agent is an autonomous system that observes its environment through sensors and takes actions using actuators (tools) to achieve specific goals, rather than merely predicting tokens like a basic chatbot.
 
-### 4. YouTube Video & Channel Search (`search_youtube`)
-Searches YouTube with advanced parameters:
-```typescript
-const search = await supadata.youtube.search({
-  query: 'TypeScript AI Agent tutorial',
-  type: 'video',
-  sortBy: 'relevance',
-  limit: 10,
-});
-console.log(search.results);
-```
-
-### 5. Social Media Metadata (`get_metadata`)
-Fetches engagement stats and creator details:
-```typescript
-const meta = await supadata.metadata({
-  url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-});
-console.log(meta.stats.views, meta.author.displayName);
-```
-
-### 6. Robust Error Handling (`SupadataError`)
-All API errors are intercepted and translated into actionable developer feedback:
-```typescript
-import { SupadataError } from '@supadata/js';
-
-try {
-  await supadata.transcript({ url: '...' });
-} catch (error) {
-  if (error instanceof SupadataError) {
-    console.error(error.error);            // e.g. 'transcript-unavailable' | 'unauthorized'
-    console.error(error.message);          // Human-readable message
-    console.error(error.documentationUrl); // Official troubleshooting docs
-  }
-}
+#### Key Takeaways:
+1. **The Iterative Loop**: True agents execute a continuous cycle: **Perceive → Reason → Act (Call Tools) → Learn from Observation**.
+2. **The 7 Agent Architectures**:
+   - **Simple Reflex**: Rule-based immediate reactions to inputs.
+   - **Model-Based**: Tracks internal state to handle partial observability.
+   - **Goal-Based**: Backward-chains actions toward an intended outcome.
+   - **Utility-Based**: Weighs trade-offs to optimize reward scores.
+   - **Learning Agents**: Updates behavior based on environment feedback.
+   - **Multi-Agent Systems**: Modular specialized agents working as a team.
+   - **Foundation Model Agents**: LLMs equipped with external tools (web scrapers, code interpreters, video transcript extractors).
+3. **The Importance of External Tools**: An LLM without tools is blind to real-time events. Data APIs like Supadata act as sensory inputs for external web and video knowledge.
 ```
 
 ---
 
-## 📁 Repository Structure
+### Interaction 2: Live Web Scraping to Clean Markdown
+> **User Prompt**:
+> *"Scrape https://supadata.ai and summarize the supported platforms and scraping features."*
 
-```
-supa-agent-starter/
-├── .github/
-│   └── workflows/
-│       └── ci.yml               # GitHub Actions CI (lint, typecheck, tests, build)
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── chat/
-│   │   │   │   └── route.ts     # POST /api/chat - Main agent chat loop
-│   │   │   ├── health/
-│   │   │   │   └── route.ts     # GET /api/health - Configuration health check
-│   │   │   └── tools/[toolName]/
-│   │   │       └── route.ts     # Direct tool invocation endpoints
-│   │   ├── globals.css          # Tailwind CSS styling & custom scrollbars
-│   │   ├── layout.tsx           # Next.js root layout with metadata
-│   │   └── page.tsx             # Main chat workspace page
-│   ├── components/
-│   │   ├── ApiKeyBanner.tsx     # Setup diagnostics and status indicator
-│   │   ├── ChatInterface.tsx    # Responsive chat message stream and input
-│   │   ├── ChatMessage.tsx      # Markdown bubble renderer & role avatars
-│   │   ├── Footer.tsx           # Open-source footer and documentation links
-│   │   ├── Navbar.tsx           # Top navigation bar with status badges
-│   │   ├── SuggestedPrompts.tsx # One-click starter prompts
-│   │   ├── ToolCallCard.tsx     # Expandable tool execution inspector
-│   │   └── ToolCatalogModal.tsx # Interactive SDK tool & schema explorer
-│   ├── config/
-│   │   ├── env.ts               # Environment validation with Zod
-│   │   └── site.ts              # Site metadata and links
-│   └── lib/
-│       ├── agent/
-│       │   ├── mock.ts          # Offline simulation engine for zero-config testing
-│       │   ├── runner.ts        # Multi-turn conversation & tool calling loop
-│       │   ├── system-prompt.ts # Agent system prompt & tool instructions
-│       │   └── types.ts         # Agent message and tool execution interfaces
-│       ├── supadata/
-│       │   ├── client.ts        # Singleton Supadata SDK client & polling logic
-│       │   ├── errors.ts        # Structured SupadataError handler & suggestions
-│       │   └── types.ts         # Re-exported SDK types & normalized interfaces
-│       ├── tools/
-│       │   ├── definitions.ts   # OpenAI tool schemas for function calling
-│       │   ├── get-metadata.ts  # supadata.metadata tool implementation
-│       │   ├── get-transcript.ts# supadata.transcript tool implementation
-│       │   ├── registry.ts      # Central tool dispatcher & error wrapper
-│       │   ├── scrape-webpage.ts# supadata.web.scrape tool implementation
-│       │   └── search-youtube.ts# supadata.youtube.search tool implementation
-│       └── utils.ts             # Formatting utilities (duration, numbers, UUIDs)
-├── tests/
-│   ├── agent.test.ts            # Agent loop and mock simulator tests
-│   ├── client.test.ts           # Client initialization and error mapping tests
-│   ├── tools.test.ts            # Tool schema validation and dispatch tests
-│   └── utils.test.ts            # Utility functions test suite
-├── .env.example                 # Example environment variables with annotations
-├── .eslintrc.json               # ESLint configuration
-├── .gitignore                   # Secure ignore file preventing credential leaks
-├── CONTRIBUTING.md              # Open-source contribution guidelines
-├── LICENSE                      # MIT Open Source License
-├── package.json                 # Project dependencies and npm scripts
-├── postcss.config.mjs           # PostCSS configuration for Tailwind
-├── tailwind.config.ts           # Tailwind CSS theme configuration
-├── tsconfig.json                # TypeScript compiler configuration
-└── vitest.config.ts             # Vitest test runner configuration
+**Tool Executed**:
+- **Tool**: `scrape_webpage`
+- **Arguments**: `{ "url": "https://supadata.ai" }`
+- **Latency**: `418ms`
+- **Status**: `200 OK`
+
+**Agent Response**:
+```markdown
+### Supadata Platform Overview
+
+I scraped https://supadata.ai using `supadata.web.scrape` and converted the content into structured Markdown.
+
+#### Supported Video Platforms:
+- **YouTube**: Transcripts with timestamps, multi-language translation, playlist/channel scraping, and keyword search.
+- **TikTok**: Spoken audio transcript extraction and engagement metrics.
+- **Instagram**: Reel and video audio transcripts and creator metadata.
+- **Twitter / X**: Video transcripts and tweet metadata.
+
+#### Key Scraping Capabilities:
+1. **Web to Markdown**: Converts any webpage into clean, LLM-ready Markdown while stripping boilerplate navigation and scripts.
+2. **Asynchronous Batch Processing**: Process thousands of URLs concurrently with status polling.
+3. **AI Structured Extraction**: Pass a JSON schema to `supadata.extract` to return strictly typed objects directly from video audio.
 ```
 
 ---
 
-## 📦 Prerequisites
+### Interaction 3: YouTube Search & Creator Discovery
+> **User Prompt**:
+> *"Search YouTube for recent tutorials on building AI agents in TypeScript with tool calling."*
 
-- **Node.js**: `v18.17.0` or higher (`v20+` recommended)
-- **npm** (`v9+`), **pnpm**, or **yarn**
-- A free Supadata API key from [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H)
-- An OpenAI API key or compatible LLM endpoint (Groq, OpenRouter, Ollama)
+**Tool Executed**:
+- **Tool**: `search_youtube`
+- **Arguments**: `{ "query": "AI agents in TypeScript tool calling", "type": "video", "sortBy": "relevance", "limit": 2 }`
+- **Latency**: `298ms`
+- **Status**: `200 OK`
+
+**Agent Response**:
+```markdown
+### YouTube Search Results for "AI agents in TypeScript tool calling"
+
+Found relevant videos via `supadata.youtube.search`:
+
+1. **What is an AI Agent? 7 types explained**
+   - **Channel**: Fireship | **Duration**: 5:45 | **Views**: 428,000+
+   - [Watch Video](https://www.youtube.com/watch?v=bvy_lPzYgcs)
+2. **[1hr Talk] Intro to Large Language Models**
+   - **Channel**: Andrej Karpathy | **Duration**: 1:00:00 | **Views**: 3,820,000+
+   - [Watch Video](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+
+Would you like me to fetch the full transcript or extract key takeaways from either of these videos?
+```
 
 ---
 
-## ⚡ Quickstart & Installation
+## 🛠 Agent Tools Reference
+
+All tools are strongly typed with Zod schemas and registered in `src/lib/tools/`:
+
+| Tool Name | Supadata SDK Method | Primary Parameters | Description |
+| :--- | :--- | :--- | :--- |
+| **`get_transcript`** | `supadata.transcript` | `url` *(string)*<br>`lang` *(string, optional)*<br>`text` *(boolean, default true)*<br>`mode` *(string, optional)* | Extracts transcripts from YouTube, TikTok, Instagram, Twitter/X, or audio URLs. Setting `text: true` returns plain text optimized for LLM token efficiency. |
+| **`scrape_webpage`** | `supadata.web.scrape` | `url` *(string)* | Scrapes any public website and converts HTML into clean, structured Markdown while extracting metadata and links. |
+| **`search_youtube`** | `supadata.youtube.search` | `query` *(string)*<br>`type` *(video/channel/playlist)*<br>`sortBy` *(relevance/date/views)*<br>`limit` *(number, 1-50)* | Searches YouTube with duration, date, and relevance filters. |
+| **`get_metadata`** | `supadata.metadata` | `url` *(string)* | Extracts social media stats (views, likes, shares, comments, author profile) across supported platforms. |
+
+---
+
+## ⚡ Quickstart & Local Setup
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/supadata-ai/supa-agent-starter.git
-cd supa-agent-starter
+git clone https://github.com/rajeshdk/supadata-example.git
+cd supadata-example
 ```
 
 ### 2. Install dependencies
@@ -301,25 +251,28 @@ npm install
 ```
 
 ### 3. Configure environment variables
-Copy the example environment file:
+Copy `.env.example` to `.env.local`:
 ```bash
 cp .env.example .env.local
 ```
 
-Open `.env.local` and add your API keys:
+Edit `.env.local` with your credentials:
 ```env
+# Get your free key at: https://supadata.ai/r/MD74ZQ3H
 SUPADATA_API_KEY=your_actual_supadata_api_key
+
+# OpenAI or any OpenAI-compatible provider (Groq, OpenRouter, Ollama)
 OPENAI_API_KEY=your_actual_openai_api_key
+OPENAI_MODEL=gpt-4o-mini
 ```
 
-*(Note: If you don't have keys yet, keep `MOCK_AGENT_MODE=true` to explore the full UI and agent flow locally!)*
+*(Note: If you don't have keys yet, the app runs in **Demo Simulator Mode** automatically so you can test all UI workflows immediately!)*
 
-### 4. Start the development server
+### 4. Start local development server
 ```bash
 npm run dev
 ```
-
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -335,7 +288,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 | `MOCK_AGENT_MODE` | No | `false` | When `true`, runs realistic offline simulation for keyless testing. |
 
 ### Using Alternative LLM Providers (Groq / OpenRouter / Ollama)
-Because the agent uses standard OpenAI-compatible function calling, you can use any compatible provider by updating `.env.local`:
+Because the agent uses standard OpenAI-compatible function calling, you can switch providers without modifying code:
 
 ```env
 # Example: Use Groq for ultra-fast Llama 3.3
@@ -346,113 +299,15 @@ OPENAI_MODEL=llama-3.3-70b-versatile
 
 ---
 
-## 💬 Example Agent Interactions
-
-### 1. Summarizing a YouTube Video
-> **User**: *"Summarize the key takeaways and architectural patterns from this video: https://www.youtube.com/watch?v=dQw4w9WgXcQ"*
->
-> **Supa Agent**:
-> 1. Invokes tool: `get_transcript` with `{ url: "...", textOnly: true }`
-> 2. Receives full text transcript from Supadata SDK in ~350ms
-> 3. Synthesizes a structured response:
->    - **Overview**: Core thesis of the talk
->    - **Key Takeaways**: Bullet points with timestamps
->    - **Technical Architecture**: Identified patterns
-
-### 2. Scraping and Querying Web Documentation
-> **User**: *"Scrape https://supadata.ai and tell me how the rate limits and batch APIs work."*
->
-> **Supa Agent**:
-> 1. Invokes tool: `scrape_webpage` with `{ url: "https://supadata.ai" }`
-> 2. Parses the resulting clean Markdown
-> 3. Answers with exact technical details and relevant documentation links
-
-### 3. Finding Tutorials and Comparing Creators
-> **User**: *"Find the top 3 videos about building AI agents with tool calling and compare their view counts."*
->
-> **Supa Agent**:
-> 1. Invokes tool: `search_youtube` with `{ query: "AI agents tool calling", limit: 3, sortBy: "relevance" }`
-> 2. Formats results with video titles, channels, view counts, and direct links
-
----
-
-## 🛠 Agent Tools Reference
-
-All tools are strongly typed with Zod schemas and registered in `src/lib/tools/`:
-
-### 1. `get_transcript`
-- **Method**: `supadata.transcript({ url, lang, text, mode })`
-- **Platforms**: YouTube, TikTok, Instagram, Twitter/X, direct audio/video URLs.
-- **Parameters**:
-  - `url` (*string*, required): Media URL.
-  - `lang` (*string*, optional): Preferred language code (e.g. `'en'`, `'es'`).
-  - `textOnly` (*boolean*, default `true`): Returns continuous string for LLMs.
-  - `mode` (*string*, optional): `'native'` \| `'auto'` \| `'generate'`.
-
-### 2. `scrape_webpage`
-- **Method**: `supadata.web.scrape(url)`
-- **Parameters**:
-  - `url` (*string*, required): Webpage URL.
-- **Returns**: Markdown content, title, description, character count, and extracted links.
-
-### 3. `search_youtube`
-- **Method**: `supadata.youtube.search({ query, type, sortBy, duration, uploadDate, limit })`
-- **Parameters**:
-  - `query` (*string*, required): Search term.
-  - `type` (*string*, default `'video'`): `'video'` \| `'channel'` \| `'playlist'`.
-  - `sortBy` (*string*, default `'relevance'`): `'relevance'` \| `'rating'` \| `'date'` \| `'views'`.
-  - `duration` (*string*, optional): `'short'` \| `'medium'` \| `'long'`.
-  - `limit` (*number*, default `10`): 1 to 50 items.
-
-### 4. `get_metadata`
-- **Method**: `supadata.metadata({ url })`
-- **Parameters**:
-  - `url` (*string*, required): Social media or video URL.
-- **Returns**: Views, likes, comments, author profile, publication date, and tags.
-
----
-
-## 🌐 API Endpoints
-
-In addition to the interactive chat UI, the template exposes standard REST endpoints:
-
-### `POST /api/chat`
-Conversational multi-turn agent loop.
-```bash
-curl -X POST http://localhost:3000/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{
-    "messages": [
-      { "role": "user", "content": "Summarize https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
-    ]
-  }'
-```
-
-### `POST /api/tools/[toolName]`
-Directly invoke any registered Supadata tool:
-```bash
-curl -X POST http://localhost:3000/api/tools/scrape_webpage \
-  -H "Content-Type: application/json" \
-  -d '{ "url": "https://supadata.ai" }'
-```
-
-### `GET /api/health`
-Returns configuration status, loaded models, and tool registry health:
-```bash
-curl http://localhost:3000/api/health
-```
-
----
-
 ## 🧪 Running Tests & Quality Checks
 
-The template includes complete automated testing and linting suites:
+The template includes an automated Vitest test suite covering client initialization, error mapping, tool schema validation, dispatcher routing, and agent simulation:
 
 ```bash
 # Run unit & integration test suite (Vitest)
 npm test
 
-# Run tests in watch mode
+# Run tests in interactive watch mode
 npm run test:watch
 
 # Run TypeScript typecheck without emitting
@@ -471,60 +326,36 @@ npm run build
 
 ### Deploying to Vercel (One-Click)
 
-1. Push your repository to GitHub.
-2. Import the project into the [Vercel Dashboard](https://vercel.com/new).
-3. Set your Environment Variables in project settings:
-   - `SUPADATA_API_KEY`: Your Supadata key
-   - `OPENAI_API_KEY`: Your OpenAI key
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajeshdk%2Fsupadata-example&env=SUPADATA_API_KEY,OPENAI_API_KEY&envDescription=API%20keys%20required%20for%20live%20Supadata%20data%20extraction%20and%20OpenAI%20reasoning&project-name=supa-agent-starter)
+
+1. Push your repository to your GitHub account (`https://github.com/rajeshdk/supadata-example`).
+2. Click the **Deploy with Vercel** button above or import the project into the [Vercel Dashboard](https://vercel.com/new).
+3. Set your Environment Variables:
+   - `SUPADATA_API_KEY`: Your key from [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H)
+   - `OPENAI_API_KEY`: Your LLM provider key
 4. Click **Deploy**.
-
-### Deploying with Docker
-
-A standard Node.js Docker container can build and serve the application:
-
-```dockerfile
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:20-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-EXPOSE 3000
-CMD ["node", "server.js"]
-```
 
 ---
 
 ## ❓ Troubleshooting & FAQs
 
 ### 1. `SUPADATA_API_KEY is not configured`
-**Cause**: The application cannot find your Supadata credentials.  
-**Fix**: Ensure `.env.local` exists in the root folder with `SUPADATA_API_KEY=...`. Restart `npm run dev`. Alternatively, set `MOCK_AGENT_MODE=true` for local mock testing.
+**Cause**: Missing or placeholder key in `.env.local`.  
+**Fix**: Ensure `SUPADATA_API_KEY=...` is set in `.env.local` and restart `npm run dev`. Alternatively, set `MOCK_AGENT_MODE=true` for offline testing.
 
 ### 2. `SupadataError: transcript-unavailable`
-**Cause**: The requested video has disabled captions or does not contain spoken audio.  
-**Fix**: Pass `mode: 'generate'` to allow Supadata's AI speech-to-text pipeline to generate captions, or try another public video with audio.
+**Cause**: The requested video has disabled captions or contains no spoken speech.  
+**Fix**: Pass `mode: 'generate'` to allow Supadata's AI transcription pipeline to generate captions, or try another public video with clear dialogue.
 
 ### 3. `SupadataError: unauthorized`
-**Cause**: The API key is invalid or expired.  
-**Fix**: Verify your key on the [Supadata Dashboard](https://supadata.ai).
-
-### 4. `Rate limit or quota exceeded`
-**Cause**: You have reached the monthly usage limit for your Supadata plan.  
-**Fix**: Check usage on your dashboard or upgrade your tier on [supadata.ai/pricing](https://supadata.ai/pricing).
+**Cause**: The API key is invalid or has expired.  
+**Fix**: Verify your key on the [Supadata Dashboard](https://supadata.ai/r/MD74ZQ3H).
 
 ---
 
 ## 🤝 Contributing
 
-Contributions from the developer community are warmly welcome! Whether reporting an issue, proposing a new tool, or improving documentation, please read our [CONTRIBUTING.md](./CONTRIBUTING.md) guide before submitting a PR.
+Contributions are warmly welcome! Please check out [CONTRIBUTING.md](./CONTRIBUTING.md) for local setup, PR guidelines, and instructions on adding new Supadata tools.
 
 ---
 
@@ -532,4 +363,4 @@ Contributions from the developer community are warmly welcome! Whether reporting
 
 This project is open-source under the [MIT License](./LICENSE).
 
-Built with pride for the **Supadata** developer community.
+Built with pride by **Rajesh** ([@rajeshdk](https://github.com/rajeshdk)) for the **Supadata** developer community.

@@ -22,7 +22,7 @@ describe('Agent Definitions & Mock Simulator', () => {
 
   describe('Mock Simulator Flow', () => {
     it('simulates get_transcript when given a YouTube URL', async () => {
-      const response = await runMockAgentResponse('Summarize https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+      const response = await runMockAgentResponse('Summarize https://www.youtube.com/watch?v=bvy_lPzYgcs');
 
       expect(response.role).toBe('assistant');
       expect(response.toolCalls).toBeDefined();

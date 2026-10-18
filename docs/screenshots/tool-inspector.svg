@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" rx="16" fill="url(#bg-grad2)"/>
+  <rect width="1000" height="620" rx="16" fill="none" stroke="#334155" stroke-width="2"/>
+
+  <!-- Header -->
+  <rect width="1000" height="56" rx="16" fill="#0f172a"/>
+  <rect y="40" width="1000" height="16" fill="#0f172a"/>
+  <text x="32" y="35" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="700">🔍 Tool Execution Inspector &amp; Telemetry</text>
+  <rect x="760" y="16" width="90" height="24" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+  <text x="805" y="32" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Status: 200 OK</text>
+  <rect x="860" y="16" width="100" height="24" rx="6" fill="#1e1b4b" stroke="#4338ca" stroke-width="1"/>
+  <text x="910" y="32" fill="#c7d2fe" font-family="monospace" font-size="11" text-anchor="middle">Latency: 342ms</text>
+
+  <line x1="0" y1="56" x2="1000" y2="56" stroke="#1e293b" stroke-width="1"/>
+
+  <!-- Left Column: Tool Invocation Arguments -->
+  <g transform="translate(32, 80)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">INPUT ARGUMENTS (Sent to LLM Tool Call):</text>
+    <rect x="0" y="12" width="440" height="480" rx="12" fill="#020617" stroke="#1e293b" stroke-width="1.5"/>
+    
+    <text x="16" y="44" fill="#a5b4fc" font-family="monospace" font-size="12">{</text>
+    <text x="32" y="70" fill="#38bdf8" font-family="monospace" font-size="12">"tool": <tspan fill="#facc15">"get_transcript"</tspan>,</text>
+    <text x="32" y="96" fill="#38bdf8" font-family="monospace" font-size="12">"arguments": <tspan fill="#a5b4fc">{</tspan></text>
+    <text x="48" y="122" fill="#38bdf8" font-family="monospace" font-size="12">"url": <tspan fill="#4ade80">"https://www.youtube.com/watch?v=bvy_lPzYgcs"</tspan>,</text>
+    <text x="48" y="148" fill="#38bdf8" font-family="monospace" font-size="12">"lang": <tspan fill="#4ade80">"en"</tspan>,</text>
+    <text x="48" y="174" fill="#38bdf8" font-family="monospace" font-size="12">"text": <tspan fill="#f43f5e">true</tspan>,</text>
+    <text x="48" y="200" fill="#38bdf8" font-family="monospace" font-size="12">"mode": <tspan fill="#4ade80">"auto"</tspan></text>
+    <text x="32" y="226" fill="#a5b4fc" font-family="monospace" font-size="12">}</text>
+    <text x="16" y="252" fill="#a5b4fc" font-family="monospace" font-size="12">}</text>
+
+    <rect x="16" y="280" width="408" height="190" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="28" y="306" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">💡 Why "text: true"?</text>
+    <text x="28" y="330" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Passing </text>
+    <text x="74" y="330" fill="#818cf8" font-family="monospace" font-size="11">text: true</text>
+    <text x="146" y="330" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11"> instructs @supadata/js to return</text>
+    <text x="28" y="350" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">a continuous plain-text string rather than timestamped</text>
+    <text x="28" y="370" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">chunks, saving 40%+ token overhead in the LLM context.</text>
+  </g>
+
+  <!-- Right Column: Supadata SDK Returned Output -->
+  <g transform="translate(500, 80)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">OUTPUT (Direct Response from @supadata/js):</text>
+    <rect x="0" y="12" width="468" height="480" rx="12" fill="#020617" stroke="#1e293b" stroke-width="1.5"/>
+
+    <text x="16" y="44" fill="#a5b4fc" font-family="monospace" font-size="12">{</text>
+    <text x="32" y="70" fill="#38bdf8" font-family="monospace" font-size="12">"success": <tspan fill="#4ade80">true</tspan>,</text>
+    <text x="32" y="96" fill="#38bdf8" font-family="monospace" font-size="12">"data": <tspan fill="#a5b4fc">{</tspan></text>
+    <text x="48" y="122" fill="#38bdf8" font-family="monospace" font-size="12">"url": <tspan fill="#4ade80">"https://www.youtube.com/watch?v=bvy_lPzYgcs"</tspan>,</text>
+    <text x="48" y="148" fill="#38bdf8" font-family="monospace" font-size="12">"language": <tspan fill="#4ade80">"en"</tspan>,</text>
+    <text x="48" y="174" fill="#38bdf8" font-family="monospace" font-size="12">"availableLanguages": <tspan fill="#a5b4fc">[</tspan><tspan fill="#4ade80">"en"</tspan><tspan fill="#a5b4fc">]</tspan>,</text>
+    <text x="48" y="200" fill="#38bdf8" font-family="monospace" font-size="12">"chunkCount": <tspan fill="#f59e0b">24</tspan>,</text>
+    <text x="48" y="226" fill="#38bdf8" font-family="monospace" font-size="12">"fullText": <tspan fill="#4ade80">"What is an AI agent? In computer science,</tspan></text>
+    <text x="48" y="248" fill="#4ade80" font-family="monospace" font-size="11">an agent is an autonomous entity that observes its</text>
+    <text x="48" y="268" fill="#4ade80" font-family="monospace" font-size="11">environment through sensors and takes actions using</text>
+    <text x="48" y="288" fill="#4ade80" font-family="monospace" font-size="11">actuators to achieve goals. Unlike a basic LLM prompt...</text>
+    <text x="32" y="318" fill="#a5b4fc" font-family="monospace" font-size="12">},</text>
+    <text x="32" y="344" fill="#38bdf8" font-family="monospace" font-size="12">"metadata": <tspan fill="#a5b4fc">{</tspan></text>
+    <text x="48" y="370" fill="#38bdf8" font-family="monospace" font-size="12">"toolName": <tspan fill="#facc15">"get_transcript"</tspan>,</text>
+    <text x="48" y="396" fill="#38bdf8" font-family="monospace" font-size="12">"executionTimeMs": <tspan fill="#f59e0b">342</tspan>,</text>
+    <text x="48" y="422" fill="#38bdf8" font-family="monospace" font-size="12">"timestamp": <tspan fill="#4ade80">"2026-10-18T18:14:02Z"</tspan></text>
+    <text x="32" y="448" fill="#a5b4fc" font-family="monospace" font-size="12">}</text>
+    <text x="16" y="474" fill="#a5b4fc" font-family="monospace" font-size="12">}</text>
+  </g>
+</svg>

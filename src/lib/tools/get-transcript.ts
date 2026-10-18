@@ -12,10 +12,14 @@ export const getTranscriptSchema = z.object({
     .string()
     .optional()
     .describe('Optional 2-letter language code (e.g., "en", "es", "fr", "de"). Defaults to native language.'),
-  textOnly: z
+  text: z
     .boolean()
     .default(true)
     .describe('Whether to return plain continuous text (recommended for AI prompts) instead of timestamped chunks.'),
+  textOnly: z
+    .boolean()
+    .optional()
+    .describe('Alias for text parameter (deprecated; prefer "text").'),
   mode: z
     .enum(['native', 'auto', 'generate'])
     .optional()
@@ -36,11 +40,12 @@ export async function executeGetTranscript(
   try {
     const validated = getTranscriptSchema.parse(params);
     const client = getSupadataClient();
+    const usePlainText = validated.text ?? validated.textOnly ?? true;
 
     const response = await client.transcript({
       url: validated.url,
       lang: validated.lang,
-      text: validated.textOnly,
+      text: usePlainText,
       mode: validated.mode,
     });
 

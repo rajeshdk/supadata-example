@@ -27,7 +27,7 @@ const supadata = new Supadata({
 
 // Fetch video transcript (supports YouTube, TikTok, Instagram, Twitter)
 const transcript = await supadata.transcript({
-  url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  url: 'https://www.youtube.com/watch?v=bvy_lPzYgcs',
   lang: 'en',
   text: true, // returns clean continuous string for LLMs
   mode: 'auto',
@@ -72,7 +72,7 @@ const supadata = new Supadata({
 
 // Extract social media metadata & stats
 const metadata = await supadata.metadata({
-  url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  url: 'https://www.youtube.com/watch?v=bvy_lPzYgcs',
 });
 
 console.log(metadata.stats.views);
