@@ -17,7 +17,7 @@ We are committed to providing a friendly, safe, and welcoming environment for al
 ### 1. Prerequisites
 - **Node.js**: Version 18.17.0 or higher (v20+ recommended)
 - **npm**: Version 9+
-- A free Supadata API key from [supadata.ai](https://supadata.ai)
+- A free Supadata API key from [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H)
 - An OpenAI API key or compatible provider (Groq, OpenRouter, Ollama)
 
 ### 2. Fork and Clone

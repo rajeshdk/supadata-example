@@ -39,7 +39,7 @@ export function ApiKeyBanner({ hasCredentials, isMockMode }: ApiKeyBannerProps) 
 
         <div className="flex items-center gap-2">
           <a
-            href="https://supadata.ai"
+            href="https://supadata.ai/r/MD74ZQ3H"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"

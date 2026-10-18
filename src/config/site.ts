@@ -7,7 +7,7 @@ export const siteConfig = {
   documentation: 'https://supadata.ai/documentation',
   links: {
     github: 'https://github.com/supadata-ai',
-    supadata: 'https://supadata.ai',
+    supadata: 'https://supadata.ai/r/MD74ZQ3H',
     npm: 'https://www.npmjs.com/package/@supadata/js',
   },
 };

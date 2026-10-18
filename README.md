@@ -6,7 +6,9 @@
 [![TypeScript 5](https://img.shields.io/badge/TypeScript-5.6-blue.svg?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](./LICENSE)
 
-**Supa Agent Starter** is a production-ready, open-source AI Agent template and starter kit built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and the official [**Supadata SDK** (`@supadata/js`)](https://supadata.ai).
+**Supa Agent Starter** is a production-ready, open-source AI Agent template and starter kit built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and the official [**Supadata SDK** (`@supadata/js`)](https://supadata.ai/r/MD74ZQ3H).
+
+Get your free API key at [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H) to get started.
 
 It provides an end-to-end reference implementation demonstrating how to build autonomous, multi-turn AI agents that interact with external video platforms and the live web using LLM tool calling (function calling).
 
@@ -280,7 +282,7 @@ supa-agent-starter/
 
 - **Node.js**: `v18.17.0` or higher (`v20+` recommended)
 - **npm** (`v9+`), **pnpm**, or **yarn**
-- A free Supadata API key from [supadata.ai](https://supadata.ai)
+- A free Supadata API key from [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H)
 - An OpenAI API key or compatible LLM endpoint (Groq, OpenRouter, Ollama)
 
 ---
@@ -325,7 +327,7 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 | Variable | Required | Default | Description |
 | :--- | :---: | :---: | :--- |
-| `SUPADATA_API_KEY` | **Yes** | — | Your Supadata API key from [supadata.ai](https://supadata.ai). |
+| `SUPADATA_API_KEY` | **Yes** | — | Your Supadata API key from [supadata.ai/r/MD74ZQ3H](https://supadata.ai/r/MD74ZQ3H). |
 | `OPENAI_API_KEY` | **Yes** | — | OpenAI API key for agent reasoning and tool calling. |
 | `OPENAI_MODEL` | No | `gpt-4o-mini` | LLM model name (e.g., `gpt-4o-mini`, `gpt-4o`, `llama-3.3-70b-versatile`). |
 | `OPENAI_BASE_URL` | No | `https://api.openai.com/v1` | Optional endpoint URL for Groq, OpenRouter, or local Ollama. |
